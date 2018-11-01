@@ -12,3 +12,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+body {
+  background-image: url("background.png");
+}
+
+.questionContainer:not(:first-child) {
+  display: none;
+}
+
+h1 {
+  margin: 35px !important;
+}
+
+#mainContainer {
+  min-height: 450px;
+}
+
+#questionSteps {
+    max-width: 850px;
+    overflow-x:scroll;
+}
+
+#success {
+    display: none;
+}
+
+input.fillInTheBlankField {
+    border-bottom-color: #000000 !important;
+    width: 175px;
+}
