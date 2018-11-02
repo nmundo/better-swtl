@@ -2,6 +2,7 @@
   "name": "better-swtl",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://students.cpcc.edu/~hmundo00/web115/better-swtl-react",
   "dependencies": {
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

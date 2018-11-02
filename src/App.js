@@ -8,12 +8,12 @@ import './App.css';
 class App extends Component {
     render() {
         return (
-            <Router>
+            <Router basename={'~hmundo00/web115/better-swtl-react'}>
                 <Grid columns={3}>
                     <Grid.Column width={3}/>
                     <Grid.Column width={10}>
-                        <Route exact path='/' component={IndexOfExercises}/>
-                        <Route path='/chapters/:id' component={ChapterContainer}/>
+                        <Route exact path={'/'} component={IndexOfExercises}/>
+                        <Route path={'/chapters/:id'} component={ChapterContainer}/>
                     </Grid.Column>
                     <Grid.Column width={3}/>
                 </Grid>
