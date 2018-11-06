@@ -5,7 +5,7 @@ class FillInTheBlankQuestion extends React.Component {
 
     render() {
         let question = this.props.question;
-        let incompleteStatement = this.props.question.incompleteStatement.split('_');
+        let incompleteStatement = this.props.question.incompleteStatement.split('__');
         return (
             <Container
                 className={'questionContainer'}

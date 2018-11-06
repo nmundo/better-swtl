@@ -14,6 +14,7 @@ class OpenEndedQuestion extends React.Component {
                 data-answer={question.correctAnswer}>
 
                 <Header as='h3'>{question.questionText}</Header>
+                <Header as='h4'>{question.subText}</Header>
                 <Form size='massive'>
                     <Message error id={`errorMessage${question.id}`} />
                     <Form.Field>
