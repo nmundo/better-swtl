@@ -25,7 +25,8 @@
           "questionType": 1,
           "answers": [],
           "correctAnswer": "()"
-        },{
+        },
+        {
           "id": 3,
           "questionText": "Fill in the blank.",
           "questionType": 2,
@@ -34,20 +35,20 @@
           "correctAnswer": "statement"
         },
         {
-          "id": 5,
+          "id": 4,
           "questionText": "Write an alert that displays \"Thanks for everything!\"",
           "questionType": 1,
           "answers": [],
           "correctAnswer": "alert(\"Thanks for everything!\");"
         },{
-          "id": 6,
+          "id": 5,
           "questionText": "Write an alert that displays \"Boo!\".",
           "questionType": 1,
           "answers": [],
           "correctAnswer": "alert(\"Boo!\");"
         },
         {
-          "id": 7,
+          "id": 6,
           "questionText": "The code displays a box with a message in it. Fill in the blank.",
           "questionType": 2,
           "incompleteStatement": " __ (\"You won!\");",
@@ -55,21 +56,21 @@
           "correctAnswer": "alert"
         },
         {
-          "id": 8,
+          "id": 7,
           "questionText": "The code displays a box with a message in it. Fill in the blank.",
           "questionType": 2,
           "incompleteStatement": "alert(\"You won!__ ",
           "answers": [],
           "correctAnswer": "\");"
         },{
-          "id": 9,
+          "id": 8,
           "questionText": "Code an alert that displays the message \"Hi\"",
           "questionType": 1,
           "answers": [],
           "correctAnswer": "alert(\"Hi\");"
         },
         {
-          "id": 10,
+          "id": 9,
           "questionText": "What are the 5 punctuation characters of an alert statement, in order?",
           "questionType": 1,
           "answers": [],
