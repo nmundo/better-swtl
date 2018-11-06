@@ -34,14 +34,6 @@
           "correctAnswer": "statement"
         },
         {
-          "id": 4,
-          "questionText": "TODO: Figure out how to do this one",
-          "questionType": 2,
-          "incompleteStatement": "A __ oeua.",
-          "answers": [],
-          "correctAnswer": ""
-        },
-        {
           "id": 5,
           "questionText": "Write an alert that displays \"Thanks for everything!\"",
           "questionType": 1,

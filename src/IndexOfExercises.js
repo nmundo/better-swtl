@@ -8,7 +8,7 @@ class IndexOfExercises extends Component {
     static getCardColor(chapter, i) {
         let score = JSON.parse(localStorage.getItem('scores'))[i];
         let totalQuestions = chapter.questions.length;
-        let color = null;
+        let color;
         let percentScore = 100 * (score / totalQuestions);
         console.log(percentScore);
         if (percentScore >= 90) {
@@ -17,6 +17,9 @@ class IndexOfExercises extends Component {
             color = 'yellow';
         } else if (percentScore < 80) {
             color = 'red';
+        }
+        if (score === null || score === undefined) {
+            color = null;
         }
         console.log(color);
         return color;
