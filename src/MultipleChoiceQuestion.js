@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Header, Container, Message } from 'semantic-ui-react'
+import Highlight from 'react-highlight'
 
 const AnswerChoice = props => {
     return <Form.Radio name='answer' label={props.text} value={props.index} />
@@ -18,9 +19,12 @@ class MultipleChoiceQuestion extends React.Component {
                 data-question-type={question.questionType}>
 
                 <Header as='h3'>{question.questionText}</Header>
-                <Form size='massive'>
-                    <Message error id={`errorMessage${question.id}`} />
+                <Form size='huge'>
                     {question.answers.map((answer, i) => <AnswerChoice text={answer} index={i} key={i}/>)}
+                    <Message error id={`errorMessage${question.id}`}>
+                        The correct answer is:
+                        <Highlight className='javascript' />
+                    </Message>
                 </Form>
             </Container>
         )

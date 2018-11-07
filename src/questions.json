@@ -9,7 +9,8 @@
           "questionText": "What is the keyword that displays a message box?",
           "questionType": 1,
           "answers": [],
-          "correctAnswer": "alert"
+          "correctAnswer": "alert",
+          "code": true
         },
         {
           "id": 1,

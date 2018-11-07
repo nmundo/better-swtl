@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Header, Container, Message } from 'semantic-ui-react'
+import Highlight from 'react-highlight'
 
 class FillInTheBlankQuestion extends React.Component {
 
@@ -15,15 +16,18 @@ class FillInTheBlankQuestion extends React.Component {
                 data-answer={question.correctAnswer}>
 
                 <Header as='h3'>{question.questionText}</Header>
-                <Form size='massive'>
-                    <Message error id={`errorMessage${question.id}`} />
-                    <Form.Field inline transparent>
+                <Form size='huge'>
+                    <Form.Field inline transparent='true'>
                         <label>{incompleteStatement[0]}</label>
                         <div className='ui transparent input'>
-                            <input type='text' name='answer' className='fillInTheBlankField'/>
+                            <input autoFocus type='text' name='answer' className='fillInTheBlankField'/>
                         </div>
                         <label>{incompleteStatement[1]}</label>
                     </Form.Field>
+                    <Message error id={`errorMessage${question.id}`}>
+                        The correct answer is:
+                        <Highlight className='javascript' />
+                    </Message>
                 </Form>
             </Container>
         )

@@ -24,7 +24,6 @@ class IndexOfExercises extends Component {
         console.log(color);
         return color;
     }
-
     render() {
         return (
             <Container>
@@ -38,7 +37,7 @@ class IndexOfExercises extends Component {
                                     <Card.Content header={chapter.name} />
                                     <Card.Content description={chapter.description} />
                                     <Card.Content extra>
-                                        {score ? `Score: ${score}/${chapter.questions.length}` : 'Not attempted'}
+                                        {score >= 0  ? `Score: ${score}/${chapter.questions.length}` : 'Not attempted'}
                                     </Card.Content>
                                 </Card>
                             )

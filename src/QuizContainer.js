@@ -1,6 +1,8 @@
 import React from 'react'
 import { Grid, Step, Button, Header, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import QuestionContainer from './QuestionContainer.js'
 
 class QuizContainer extends React.Component {
@@ -45,6 +47,7 @@ class QuizContainer extends React.Component {
             let steps = document.getElementById('questionSteps').children;
             if (answeredCorrectly) {
                 this.setState({answerHistory: [...this.state.answerHistory, true]});
+                toast.success('Good Job!');
                 steps[questionId].classList.add('success');
                 this.goToNextQuestion(questionId)
             } else {
@@ -69,6 +72,8 @@ class QuizContainer extends React.Component {
         } catch (e) {
             document.getElementById('success').style.display = 'block';
             document.getElementById('submitButton').style.display = 'none';
+            document.getElementById('nextChapterButton').style.display = 'block';
+            document.getElementById('nextChapterButton').focus();
             setTimeout(() => this.setScore(), 150);
         }
     }
@@ -76,7 +81,8 @@ class QuizContainer extends React.Component {
     showError(questionId, correctAnswerID) {
         let correctAnswer = this.props.questions[questionId].answers[correctAnswerID] || this.props.questions[questionId].correctAnswer;
         let errorDiv = document.getElementById(`errorMessage${questionId}`);
-        errorDiv.innerText = `The correct answer is ${correctAnswer}`;
+        //errorDiv.innerText = 'The correct answer is: \n';
+        errorDiv.getElementsByTagName('code')[0].innerText = correctAnswer;
         document.getElementById(`question${questionId}`).getElementsByTagName('form')[0].classList.add('error');
     }
 
@@ -113,12 +119,11 @@ class QuizContainer extends React.Component {
                             return <QuestionContainer question={question} questionNumber={i} key={i}/>
                         })}
                         <div id='success'>
-                            <Header as='h2' icon textAlign='center'>
+                            <Header as='h1' icon textAlign='center'>
                                 <Icon name='check circle' style={{color: '#34d158'}} />
                                 <Header.Content>Finished!</Header.Content>
                                 <Header.Subheader>
                                     <div>{this.getScore()}/{this.state.answerHistory.length}</div>
-                                    <Link to='/'>Chapter Listing</Link>
                                 </Header.Subheader>
                             </Header>
                         </div>
@@ -126,16 +131,29 @@ class QuizContainer extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column width={2} />
-                    <Grid.Column width={6}>
-                        <Link to='/'>
-                            <Icon name='angle left' />
-                            Chapter Listing
-                        </Link>
+                    <Grid.Column width={4}>
+                        <Button basic icon labelPosition='left' as={Link} to={`/chapters/${this.props.chapterId - 1}`}>
+                            Previous Chapter
+                            <Icon name='left arrow' />
+                        </Button>
                     </Grid.Column>
-                    <Grid.Column width={6} textAlign='right'>
-                        <Button id='submitButton' onClick={() => this.checkAnswer()}>Next</Button>
+                    <Grid.Column width={4} textAlign='center'>
+                        <Button basic as={Link} to='/'>
+                            Chapter Listing
+                        </Button>
+                    </Grid.Column>
+                    <Grid.Column width={4} textAlign='right'>
+                        <Button icon labelPosition='right' id='submitButton' onClick={() => this.checkAnswer()}>
+                            Next Question
+                            <Icon name='right arrow' />
+                        </Button>
+                        <Button icon labelPosition='right' id='nextChapterButton' as={Link} to={`/chapters/${parseInt(this.props.chapterId) + 1}`} style={{display: 'none'}}>
+                            Next Chapter
+                            <Icon name='right arrow' />
+                        </Button>
                     </Grid.Column>
                 </Grid.Row>
+                <ToastContainer autoClose={2000} hideProgressBar={true} />
             </Grid>
         )
     }

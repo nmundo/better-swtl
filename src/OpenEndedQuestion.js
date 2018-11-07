@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Header, Container, Message } from 'semantic-ui-react'
+import Highlight from 'react-highlight'
 
 class OpenEndedQuestion extends React.Component {
 
@@ -14,12 +15,15 @@ class OpenEndedQuestion extends React.Component {
                 data-answer={question.correctAnswer}>
 
                 <Header as='h3'>{question.questionText}</Header>
-                <Header as='h4'>{question.subText}</Header>
-                <Form size='massive'>
-                    <Message error id={`errorMessage${question.id}`} />
+                    <Highlight className='javascript'>{question.subText}</Highlight>
+                <Form size='huge'>
                     <Form.Field>
-                        <input type='text' name='answer' />
+                        <input autoFocus type='text' name='answer' />
                     </Form.Field>
+                    <Message error id={`errorMessage${question.id}`}>
+                        The correct answer is:
+                        <Highlight className='javascript' />
+                    </Message>
                 </Form>
             </Container>
         )
